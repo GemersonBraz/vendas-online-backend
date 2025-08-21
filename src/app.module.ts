@@ -16,8 +16,9 @@ import { UserEntity } from './user/interfaces/user.entity';
       password: process.env.BD_PASSWORD,
       port: Number(process.env.BD_PORT),
       username: process.env.BD_USERNAME,
-      entities: [UserEntity],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [`${__dirname}/migration/{.ts,*.js}`], // Ensure the UserEntity is included here
+      migrationsRun: true,
     }),
     UserModule,
   ],
